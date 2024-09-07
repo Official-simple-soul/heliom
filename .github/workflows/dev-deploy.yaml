@@ -1,0 +1,38 @@
+name: Deploy content to dev
+
+on:
+  push:
+    branches: ['dev-next']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      REACT_APP_API_URL: 'https://${{ secrets.BACKEND_HOST }}/api/v1'
+      REACT_APP_BASE_URL: 'https://${{ secrets.BACKEND_HOST }}'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Authenticate with GitHub Packages
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GIT_CREDENTIALS }}" >> ~/.npmrc
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - run: pnpm install
+      - run: pnpm run build
+      - name: Deploy with rsync to Dev
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude '.git' --exclude '.github' --exclude 'cypress'
+          path: ./out/
+          remote_path: ${{ secrets.DEPLOY_DOC_ROOT_2 }}
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
