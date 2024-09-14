@@ -1,11 +1,16 @@
 // In Production
 'use client';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 
 const RestContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
-  return <RestContext.Provider value={{}}>{children}</RestContext.Provider>;
+  const [userProfile, setUserProfile] = useState({});
+  return (
+    <RestContext.Provider value={{ userProfile, setUserProfile }}>
+      {children}
+    </RestContext.Provider>
+  );
 };
 
 const useGlobalContext = () => {
