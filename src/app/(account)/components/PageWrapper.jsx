@@ -37,7 +37,8 @@ const PageWrapper = ({ children, sideItem, route }) => {
             <div
               className={`${
                 showSide ? 'block' : 'hidden'
-              } fixed top-0 right-0 left-0 bottom-0 bg-black opacity-80 z-20`}
+              } fixed top-0 right-0 left-0 bottom-0 bg-black opacity-80 z-20 delay-300`}
+              onClick={() => setShowSide(false)}
             ></div>
             <Sidebar
               showSide={showSide}
