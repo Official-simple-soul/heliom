@@ -1,9 +1,9 @@
-'use client';
-import React, { useState } from 'react';
-import FormBuilder from '@/dynamics/FormBuilder';
-import { signUpFormElements } from '../data/signUpForm';
-import useLocalStorage from '@/hooks/useLocalStorage';
-import StatusModal from '@/components/StatusModal';
+"use client";
+import React, { useState } from "react";
+import FormBuilder from "@/dynamics/FormBuilder";
+import { signUpFormElements } from "../data/signUpForm";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import StatusModal from "@/components/StatusModal";
 
 const SignUp = ({ setPage }) => {
   const [formData] = useState<FormData>({});
@@ -12,7 +12,7 @@ const SignUp = ({ setPage }) => {
 
   const handleSignUp = (formValues: FormData) => {
     setLoadingState(true);
-    console.log('Login Data:', formValues);
+    console.log("Login Data:", formValues);
     setSuccesModal(true);
     setLoadingState(false);
   };
@@ -22,32 +22,34 @@ const SignUp = ({ setPage }) => {
   };
 
   return (
-    <div className="h-full flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-lg p-8">
-        <h1 className="text-2xl font-semibold text-gray-800 mb-3 text-center">
-          Sign Up
-        </h1>
-        <p className="mb-2 text-gray-500 text-center">
-          Fill in the accurate information below
-        </p>
-
-        <FormBuilder
-          elements={signUpFormElements(handleBackButtonClick)}
-          formData={formData}
-          onSubmit={handleSignUp}
-          loadingState={loadingState}
-        />
-
-        <div className="mt-4 text-center">
-          <p className="text-sm text-gray-500">
-            Already have an account?
-            <a
-              href="/login"
-              className="text-pri font-semibold hover:underline ml-2"
-            >
-              Sign In
-            </a>
+    <>
+      <div className="w-full h-[90vh] overflow-auto bg-gray-50">
+        <div className="max-w-lg mx-auto p-8">
+          <h1 className="text-2xl font-semibold text-gray-800 mb-3 text-center">
+            Sign Up
+          </h1>
+          <p className="mb-2 text-gray-500 text-center">
+            Fill in the accurate information below
           </p>
+
+          <FormBuilder
+            elements={signUpFormElements(handleBackButtonClick)}
+            formData={formData}
+            onSubmit={handleSignUp}
+            loadingState={loadingState}
+          />
+
+          <div className="my-4 text-center">
+            <p className="text-sm text-gray-500">
+              Already have an account?
+              <a
+                href="/login"
+                className="text-pri font-semibold hover:underline ml-2"
+              >
+                Sign In
+              </a>
+            </p>
+          </div>
         </div>
       </div>
       {succesModal && (
@@ -58,7 +60,7 @@ const SignUp = ({ setPage }) => {
           type="success"
         />
       )}
-    </div>
+    </>
   );
 };
 
