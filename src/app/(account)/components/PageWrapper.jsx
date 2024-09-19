@@ -17,7 +17,7 @@ const PageWrapper = ({ children, sideItem, route }) => {
   const { userProfile } = useGlobalContext();
   const [avatarUrl, setAvatarUrl] = useState(null);
   const { mainBgColor, trans, bgColor } = ThemeColor();
-  const [searchInput, setSearchInput] = useState('');
+  const [setSearchInput] = useState('');
 
   useEffect(() => {
     if (userProfile?.profile?.avatar) {

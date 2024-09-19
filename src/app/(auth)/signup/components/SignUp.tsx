@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import FormBuilder from "@/dynamics/FormBuilder";
 import { signUpFormElements } from "../data/signUpForm";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import StatusModal from "@/components/StatusModal";
 
 const SignUp = ({ setPage }) => {

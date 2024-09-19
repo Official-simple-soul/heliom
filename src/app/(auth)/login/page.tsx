@@ -2,10 +2,9 @@
 import React, { useState } from 'react';
 import FormBuilder from '@/dynamics/FormBuilder';
 import { loginFormElements } from './data/loginForm';
-import useLocalStorage from '@/hooks/useLocalStorage';
 
 const Login: React.FC = () => {
-  const [formData, setFormData] = useState({});
+  const [formData] = useState({});
   const [loadingState, setLoadingState] = useState<boolean>(false);
 
   const handleLogin = (formValues: FormData) => {
