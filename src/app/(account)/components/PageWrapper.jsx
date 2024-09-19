@@ -16,7 +16,7 @@ const PageWrapper = ({ children, sideItem, route }) => {
   const [profileDropDown, setProfileDropDown] = useState(false);
   const { userProfile } = useGlobalContext();
   const [avatarUrl, setAvatarUrl] = useState(null);
-  const { mainBgColor, trans, bgColor } = ThemeColor();
+  const { mainBgColor, trans, bgColor, textColor } = ThemeColor();
   const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
@@ -108,7 +108,7 @@ const PageWrapper = ({ children, sideItem, route }) => {
 
           <div
             className={`md:ml-6 p-6 pt-20 md:pl-60 min-h-[200vh] ${trans}`}
-            style={{ backgroundColor: mainBgColor }}
+            style={{ backgroundColor: mainBgColor, color: textColor }}
           >
             {children}
           </div>
