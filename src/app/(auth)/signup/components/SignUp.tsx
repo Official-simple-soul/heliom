@@ -1,8 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import FormBuilder from "@/dynamics/FormBuilder";
-import { signUpFormElements } from "../data/signUpForm";
-import StatusModal from "@/components/StatusModal";
+'use client';
+import React, { useState } from 'react';
+import FormBuilder from '@/dynamics/FormBuilder';
+import { signUpFormElements } from '../data/signUpForm';
+import StatusModal from '@/components/StatusModal';
+import { useRouter } from 'next/navigation';
 
 type FormData = {
   [key: string]: string | number | boolean;
@@ -16,10 +17,11 @@ const SignUp: React.FC<SignUpProps> = ({ setPage }) => {
   const [formData] = useState({});
   const [loadingState, setLoadingState] = useState<boolean>(false);
   const [successModal, setSuccessModal] = useState(false);
+  const navigate = useRouter();
 
   const handleSignUp = (formValues: FormData) => {
     setLoadingState(true);
-    console.log("Sign Up Data:", formValues);
+    console.log('Sign Up Data:', formValues);
     // Simulate API call and response
     setSuccessModal(true);
     setLoadingState(false);
@@ -64,7 +66,7 @@ const SignUp: React.FC<SignUpProps> = ({ setPage }) => {
         <StatusModal
           statusText="Account Created!"
           statusDesc="You have successfully signed up as a buyer. Please go ahead and update your profile."
-          onClick={() => setSuccessModal(false)}
+          onClick={() => navigate.replace('/dashboard')}
           type="success"
         />
       )}
