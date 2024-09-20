@@ -16,7 +16,7 @@ const PageWrapper = ({ children, sideItem, route }) => {
   const { userProfile } = useGlobalContext();
   const [avatarUrl, setAvatarUrl] = useState(null);
   const { mainBgColor, trans, bgColor, textColor } = ThemeColor();
-  const [searchInput, setSearchInput] = useState('');
+  const [setSearchInput] = useState('');
   const [notification, setNotification] = useState(false);
 
   useEffect(() => {

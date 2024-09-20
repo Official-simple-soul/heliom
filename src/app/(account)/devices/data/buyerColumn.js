@@ -1,4 +1,4 @@
-export const buyerMeterColumn = (meterData) => {
+export const buyerMeterColumn = () => {
   return [
     {
       field: 'id',
@@ -9,7 +9,7 @@ export const buyerMeterColumn = (meterData) => {
       field: '',
       headerName: 'Name',
       width: 60,
-      renderCell: (params) => (
+      renderCell: () => (
         <div
           style={{
             cursor: 'pointer',

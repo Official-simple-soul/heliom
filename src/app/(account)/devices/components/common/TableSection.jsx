@@ -1,6 +1,5 @@
 import React from 'react';
 import { tableStyles } from '@/constant/tableStyles';
-import { useRouter } from 'next/navigation';
 import TableWidget from '@/dynamics/TableWidget';
 import { buyerMeterColumn } from '../../data/buyerColumn';
 import { useState } from 'react';
@@ -11,8 +10,12 @@ function TableSection({tableData}) {
   const tableStyle = tableStyles(textColor, bgColor);
   const [isPending] = useState(false);
 
-  const handleRowClick = (data) => {};
-  const handleRowSelectionModelChange = (data) => {};
+  const handleRowClick = (data) => {
+    console.log(data);
+  };
+  const handleRowSelectionModelChange = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className='w-full'>
