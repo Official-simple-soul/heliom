@@ -2,18 +2,26 @@
 import React, { useState } from "react";
 import FormBuilder from "@/dynamics/FormBuilder";
 import { signUpFormElements } from "../data/signUpForm";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import StatusModal from "@/components/StatusModal";
 
-const SignUp = ({ setPage }) => {
-  const [formData] = useState<FormData>({});
+type FormData = {
+  [key: string]: string | number | boolean;
+};
+
+interface SignUpProps {
+  setPage: (page: number) => void;
+}
+
+const SignUp: React.FC<SignUpProps> = ({ setPage }) => {
+  const [formData] = useState({});
   const [loadingState, setLoadingState] = useState<boolean>(false);
-  const [succesModal, setSuccesModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
 
   const handleSignUp = (formValues: FormData) => {
     setLoadingState(true);
-    console.log("Login Data:", formValues);
-    setSuccesModal(true);
+    console.log("Sign Up Data:", formValues);
+    // Simulate API call and response
+    setSuccessModal(true);
     setLoadingState(false);
   };
 
@@ -52,11 +60,11 @@ const SignUp = ({ setPage }) => {
           </div>
         </div>
       </div>
-      {succesModal && (
+      {successModal && (
         <StatusModal
           statusText="Account Created!"
           statusDesc="You have successfully signed up as a buyer. Please go ahead and update your profile."
-          onClick={() => setSuccesModal(false)}
+          onClick={() => setSuccessModal(false)}
           type="success"
         />
       )}

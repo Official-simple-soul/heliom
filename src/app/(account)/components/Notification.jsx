@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import data from '@/data/data';
+import Image from 'next/image';
 
 export default function Notification({ notification }) {
   const [allArchive, setAllArchive] = useState('All');
@@ -78,7 +79,7 @@ export default function Notification({ notification }) {
                   return (
                     <li key={item.id}>
                       <div className="flex justify-between items-center space-x-4 px-5 border-b py-3 hover:bg-blue-ribbon-100 cursor-pointer">
-                        <img src={'/images/Boma.png'} alt="" />
+                        <Image src={'/images/Boma.png'} height={100} width={100} alt=''/>
                         <div className="text">
                           <p className="text-sm font-light">
                             <span className="font-bold">Boma</span> posted a new{' '}

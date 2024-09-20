@@ -2,14 +2,14 @@ name: Deploy content to dev
 
 on:
   push:
-    branches: ['dev-next']
+    branches: ['dev']
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      REACT_APP_API_URL: 'https://${{ secrets.BACKEND_HOST }}/api/v1'
-      REACT_APP_BASE_URL: 'https://${{ secrets.BACKEND_HOST }}'
+      NEXT_PUBLIC_API_URL: 'https://${{ secrets.BACKEND_HOST }}/api/v1'
+      NEXT_PUBLIC_BASE_URL: 'https://${{ secrets.BACKEND_HOST }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
         with:
           switches: -avzr --delete --exclude '.git' --exclude '.github' --exclude 'cypress'
           path: ./out/
-          remote_path: ${{ secrets.DEPLOY_DOC_ROOT_2 }}
+          remote_path: ${{ secrets.DEPLOY_DOC_ROOT }}
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}

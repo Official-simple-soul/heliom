@@ -1,7 +1,4 @@
-import { useGlobalContext } from '@/store/context';
-
 export const ThemeColor = () => {
-  const { darkMode } = useGlobalContext();
 
   const trans = 'transtion-all ease-in-out duration-300';
   const bgColor = '#ffffff';

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
 }
 
@@ -27,51 +27,43 @@ body {
 }
 
 @font-face {
-  font-family: 'h-medium';
-  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueMedium.otf')
-    format('truetype');
+  font-family: "h-medium";
+  src: url("../assets/fonts/helvetica-neue-5/HelveticaNeueMedium.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'h-heavy';
-  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueHeavy.otf')
-    format('truetype');
+  font-family: "h-heavy";
+  src: url("../assets/fonts/helvetica-neue-5/HelveticaNeueHeavy.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'h-bold';
-  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueBold.otf')
-    format('truetype');
+  font-family: "h-bold";
+  src: url("../assets/fonts/helvetica-neue-5/HelveticaNeueBold.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'h-black';
-  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueBlack.otf')
-    format('truetype');
+  font-family: "h-black";
+  src: url("../assets/fonts/helvetica-neue-5/HelveticaNeueBlack.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'h-thin';
-  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueThin.otf')
-    format('truetype');
+  font-family: "h-thin";
+  src: url("../assets/fonts/helvetica-neue-5/HelveticaNeueThin.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'h-light';
-  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueLight.otf')
-    format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'h-heavy';
-  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueHeavy.otf')
-    format('truetype');
+  font-family: "h-light";
+  src: url("../assets/fonts/helvetica-neue-5/HelveticaNeueLight.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
