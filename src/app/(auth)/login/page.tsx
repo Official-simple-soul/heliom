@@ -2,15 +2,16 @@
 import React, { useState } from 'react';
 import FormBuilder from '@/dynamics/FormBuilder';
 import { loginFormElements } from './data/loginForm';
-import useLocalStorage from '@/hooks/useLocalStorage';
+import { useRouter } from 'next/navigation';
 
 const Login: React.FC = () => {
-  const [formData, setFormData] = useState({});
+  const [formData] = useState({});
   const [loadingState, setLoadingState] = useState<boolean>(false);
-
+const navigate = useRouter()
   const handleLogin = (formValues: FormData) => {
     setLoadingState(true);
     console.log('Login Data:', formValues);
+    navigate.replace('/dashboard');
     setLoadingState(false);
   };
 

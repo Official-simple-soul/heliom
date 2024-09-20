@@ -2,15 +2,17 @@
 import React from 'react';
 import Button from '@/components/Button'; // Adjust the import to your Button path
 import { FaPlus } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
 
-function Top() {
+function Top({activeTab, setActiveTab}) {
+const navigate = useRouter()
+
   const handleRegisterDeviceClick = () => {
-    // Define what happens when the button is clicked
-    console.log('Register device button clicked');
+    navigate.push('/devices/register_device')
   };
 
   return (
-    <div className="my-8">
+    <div className="mt-8 mb-4 space-y-10">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold mb-1">My Devices</h1>
@@ -24,6 +26,10 @@ function Top() {
           text="Register Device"
           styles="hover:bg-blue-700"
         />
+      </div>
+      <div className="flex items-center">
+        <button className={`${activeTab === 'added'? 'border border-pri text-pri bg-[#eef0fe]':''} text-sm font-h-medium px-4 py-1 rounded`} onClick={() => setActiveTab('added')}>Added Devices</button>
+        <button className={`${activeTab === 'registered'? 'border border-pri text-pri bg-[#eef0fe]':''} text-sm font-h-medium px-4 py-1 rounded`} onClick={() => setActiveTab('registered')}>Registered Devices</button>
       </div>
     </div>
   );

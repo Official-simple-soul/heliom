@@ -3,19 +3,19 @@ import { tableStyles } from '@/constant/tableStyles';
 import { useRouter } from 'next/navigation';
 import TableWidget from '@/dynamics/TableWidget';
 import { buyerMeterColumn } from '../../data/buyerColumn';
-import { tableData } from '../../data/tableData';
 import { useState } from 'react';
 import { ThemeColor } from '@/constant/themeColor';
 
-function TableSection() {
-  const { mainBgColor, trans, bgColor, textColor } = ThemeColor();
+function TableSection({tableData}) {
+  const { bgColor, textColor } = ThemeColor();
   const tableStyle = tableStyles(textColor, bgColor);
-  const [isPending, setIsPending] = useState(false);
+  const [isPending] = useState(false);
 
   const handleRowClick = (data) => {};
   const handleRowSelectionModelChange = (data) => {};
+
   return (
-    <div>
+    <div className='w-full'>
       <TableWidget
         rows={tableData}
         columns={buyerMeterColumn()}

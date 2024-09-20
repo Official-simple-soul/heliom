@@ -19,6 +19,7 @@ const config: Config = {
         'h-black': ['h-black', 'sans-serif'],
         'h-heavy': ['h-heavy', 'sans-serif'],
         'h-medium': ['h-medium', 'sans-serif'],
+        'h-normal': ['h-normal', 'sans-serif'],
         'h-light': ['h-light', 'sans-serif'],
         'h-thin': ['h-thin', 'sans-serif'],
       },

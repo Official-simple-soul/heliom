@@ -75,7 +75,10 @@ body {
   font-weight: normal;
   font-style: normal;
 }
-
-body {
-  /* font-family: 'h-medium', sans-serif; */
+@font-face {
+  font-family: 'h-normal';
+  src: url('../assets/fonts/helvetica-neue-5/HelveticaNeueRoman.otf')
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
