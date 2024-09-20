@@ -41,7 +41,7 @@ const Sidebar = ({ showSide, setShowSide, sideItem }) => {
             <div className="relative">
               {sideItem?.map((side_item, index) => {
                 const href = side_item.link;
-                const isActive = pathname === href;
+                const isActive = pathname.startsWith(href);
 
                 return (
                   (side_item.authorizedUsers?.includes('all') ||
@@ -52,10 +52,10 @@ const Sidebar = ({ showSide, setShowSide, sideItem }) => {
                       key={index}
                       href={href}
                       onClick={handleNavSide}
-                      className={`w-full font-h-light flex items-center gap-3 px-6 py-3 my-2 transition-colors duration-200 justify-start ${
+                      className={`w-full font-h-normal flex items-center gap-3 px-6 py-3 my-2 transition-colors duration-200 justify-start ${
                         isActive
                           ? `text-pri bg-[#0d6efd08] border-l-4 border-pri`
-                          : 'text-[#808080] hover:text-pri hover:bg-[#0d6efd08] hover:font-semibold hover:border-l-4 hover:border-pri'
+                          : 'text-[#808080] hover:text-pri hover:bg-[#0d6efd08] hover:font-h-medium hover:border-l-4 hover:border-pri'
                       }`}
                     >
                       <span className="text-left">{side_item.logo}</span>

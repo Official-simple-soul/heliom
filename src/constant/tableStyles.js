@@ -12,19 +12,20 @@ export const tableStyles = (textColor, bgColor) => {
       backgroundColor: 'transparent',
     },
     header: {
-      backgroundColor: '#eaeff6',
+      backgroundColor: '#eef0fe',
+      color: '#0F3CB1',
     },
     cell: {
       border: 'none',
     },
     row: {
       marginY: 1,
-      borderRadius: 2,
+      borderRadius: '8px',
       backgroundColor: bgColor,
       boxShadow: '0 2px 2px rgba(0, 0, 0, 0.1)',
     },
     rowHover: {
-      backgroundColor: '#eaeff6',
+      backgroundColor: '#eef0fe',
     },
   };
 };

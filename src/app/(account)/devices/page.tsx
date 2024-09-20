@@ -1,7 +1,8 @@
 import React from 'react';
+import Devices from './components/Devices';
 
 function page() {
-  return <div>My Devices</div>;
+  return <Devices />;
 }
 
 export default page;
