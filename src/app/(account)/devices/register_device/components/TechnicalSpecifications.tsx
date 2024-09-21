@@ -27,7 +27,7 @@ function TechnicalSpecifications() {
         <button className="min-w-[188px] px-[16px] py-[8px] text-pri font-h-medium rounded-[8px] border border-pri">
           Back
         </button>
-        <button className="min-w-[188px] px-[16px] py-[8px] font-h-medium rounded-[8px] bg-pri text-[#FFFFFF]">
+        <button onClick={handleSubmit} className="min-w-[188px] px-[16px] py-[8px] font-h-medium rounded-[8px] bg-pri text-[#FFFFFF]">
           Next
         </button>
       </div>

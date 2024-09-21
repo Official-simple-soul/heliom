@@ -7,7 +7,7 @@ import { validation } from '@/utils/validation';
 
 function MeterDetails() {
   const [formData, setFormData] = useState<FormData>({});
-  const { formValues, setFormValues } = useGlobalContext();
+  const {setFormValues } = useGlobalContext();
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 
