@@ -6,8 +6,9 @@ const RestContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
   const [userProfile, setUserProfile] = useState({});
+  const [formValues, setFormValues] = useState({})
   return (
-    <RestContext.Provider value={{ userProfile, setUserProfile }}>
+    <RestContext.Provider value={{ userProfile, setUserProfile, formValues, setFormValues }}>
       {children}
     </RestContext.Provider>
   );
