@@ -3,7 +3,7 @@ import FormBuilder from "@/dynamics/FormBuilder";
 import { TechnicalSpecificationForm } from "../data/TechnicalSpecification";
 
 function TechnicalSpecifications() {
-  const [formData, setFormData] = useState<FormData>({});
+  const [formData, setFormData] = useState();
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 

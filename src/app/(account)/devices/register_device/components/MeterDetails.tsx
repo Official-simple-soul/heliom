@@ -6,13 +6,12 @@ import { toast } from 'react-toastify';
 import { validation } from '@/utils/validation';
 
 function MeterDetails() {
-  const [formData, setFormData] = useState<FormData>({});
+  const [formData, setFormData] = useState();
   const {setFormValues } = useGlobalContext();
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 
-  const handleNext = (e, formValues: FormData) => {
-    e.preventDefault();
+  const handleSubmit = (formValues: FormData) => {
 
     if (validation(formData).status) {
       toast.error('Complete all form fields');
@@ -28,7 +27,6 @@ function MeterDetails() {
 
   return (
     <div className="bg-[#FFFFFF] p-10 rounded-[20px] flex flex-col justify-between min-h-[607px]">
-      <form action="" onSubmit={handleNext}>
         <FormBuilder
           elements={MeterDetailsForm()}
           formData={formData}
@@ -40,13 +38,12 @@ function MeterDetails() {
             Back
           </button>
           <button
-            type="submit"
+           onClick={handleSubmit}
             className="min-w-[188px] px-[16px] py-[8px] font-h-medium rounded-[8px] bg-pri text-[#FFFFFF]"
           >
             Next
           </button>
         </div>
-      </form>
     </div>
   );
 }

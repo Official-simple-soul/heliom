@@ -3,7 +3,7 @@ import FormBuilder from "@/dynamics/FormBuilder";
 import { InstallationDetailsForm } from "../data/InstallationDetails";
 
 function MeterDetails() {
-  const [formData, setFormData] = useState<FormData>({});
+  const [formData, setFormData] = useState();
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 

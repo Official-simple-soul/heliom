@@ -3,7 +3,7 @@ import FormBuilder from "@/dynamics/FormBuilder";
 import { RegulatoryComplianceForm } from "../data/RegulatoryComplianceForm";
 
 function RegulatoryCompliance() {
-  const [formData, setFormData] = useState<FormData>({});
+  const [formData, setFormData] = useState();
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 
