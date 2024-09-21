@@ -120,7 +120,7 @@ const PageWrapper = ({ children, sideItem, route }) => {
           </nav>
 
           <div
-            className={`md:ml-6 p-6 pt-20 md:pl-60 min-h-[100vh] ${trans}`}
+            className={`md:ml-6 p-6 pt-20 my-8 md:pl-60 min-h-[100vh] ${trans}`}
             style={{ backgroundColor: mainBgColor, color: textColor }}
           >
             {children}

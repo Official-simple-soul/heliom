@@ -12,7 +12,7 @@ const navigate = useRouter()
   };
 
   return (
-    <div className="mt-8 mb-4 space-y-10">
+    <div className="mb-4 space-y-10">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold mb-1">My Devices</h1>
