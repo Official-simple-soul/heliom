@@ -4,6 +4,7 @@ import { useState } from "react";
 import TechnicalSpecifications from "./TechnicalSpecifications";
 import MeterDetails from "./MeterDetails";
 import RegulatoryCompliance from "./RegulatoryCompliance";
+import InstallationDetails from "./InstallationDetails";
 
 export default function MultiForm() {
   const [activeTab, setActiveTab] = useState(0);

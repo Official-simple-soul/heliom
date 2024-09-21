@@ -2,7 +2,7 @@ import { useState } from "react";
 import FormBuilder from "@/dynamics/FormBuilder";
 import { InstallationDetailsForm } from "../data/InstallationDetails";
 
-function MeterDetails() {
+function InstallationDetails() {
   const [formData, setFormData] = useState();
 
   const [loadingState, setLoadingState] = useState(false);
@@ -35,4 +35,4 @@ function MeterDetails() {
   );
 }
 
-export default MeterDetails;
+export default InstallationDetails;
