@@ -11,7 +11,7 @@ function MeterDetails() {
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 
-  const handleSubmit = (formValues: FormData) => {
+  const handleSubmit = (formValues) => {
 
     if (validation(formData).status) {
       toast.error('Complete all form fields');

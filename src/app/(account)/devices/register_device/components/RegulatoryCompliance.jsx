@@ -7,7 +7,7 @@ function RegulatoryCompliance() {
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 
-  const handleSubmit = (formValues: FormData) => {
+  const handleSubmit = (formValues) => {
     setLoadingState(true);
     console.log("Info values:", formValues);
     setLoadingState(false);

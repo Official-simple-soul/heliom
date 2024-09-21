@@ -1,13 +1,13 @@
 import { useState } from "react";
 import FormBuilder from "@/dynamics/FormBuilder";
-import { TechnicalSpecificationForm } from "../data/TechnicalSpecification";
+import { InstallationDetailsForm } from "../data/InstallationDetails";
 
-function TechnicalSpecifications() {
+function MeterDetails() {
   const [formData, setFormData] = useState();
 
   const [loadingState, setLoadingState] = useState<boolean>(false);
 
-  const handleSubmit = (formValues: FormData) => {
+  const handleSubmit = (formValues) => {
     setLoadingState(true);
     console.log("Info values:", formValues);
     setLoadingState(false);
@@ -18,7 +18,7 @@ function TechnicalSpecifications() {
   return (
     <div className="bg-[#FFFFFF] p-10 rounded-[20px] flex flex-col justify-between min-h-[607px]">
       <FormBuilder
-        elements={TechnicalSpecificationForm()}
+        elements={InstallationDetailsForm()}
         formData={formData}
         setFormData={setFormData}
         loadingState={loadingState}
@@ -35,4 +35,4 @@ function TechnicalSpecifications() {
   );
 }
 
-export default TechnicalSpecifications;
+export default MeterDetails;
