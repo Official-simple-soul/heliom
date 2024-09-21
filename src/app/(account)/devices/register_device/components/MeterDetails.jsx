@@ -9,7 +9,7 @@ function MeterDetails() {
   const [formData, setFormData] = useState();
   const {setFormValues } = useGlobalContext();
 
-  const [loadingState, setLoadingState] = useState<boolean>(false);
+  const [loadingState, setLoadingState] = useState(false);
 
   const handleSubmit = (formValues) => {
 

@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import RegulatoryCompliance from "./RegulatoryCompliance";
-import MeterDetails from "./MeterDetails";
-import InstallationDetails from "./InstallationDetails";
 import TechnicalSpecifications from "./TechnicalSpecifications";
+import MeterDetails from "./MeterDetails";
+import RegulatoryCompliance from "./RegulatoryCompliance";
 
 export default function MultiForm() {
   const [activeTab, setActiveTab] = useState(0);

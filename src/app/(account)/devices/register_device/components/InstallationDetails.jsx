@@ -5,7 +5,7 @@ import { InstallationDetailsForm } from "../data/InstallationDetails";
 function MeterDetails() {
   const [formData, setFormData] = useState();
 
-  const [loadingState, setLoadingState] = useState<boolean>(false);
+  const [loadingState, setLoadingState] = useState(false);
 
   const handleSubmit = (formValues) => {
     setLoadingState(true);
