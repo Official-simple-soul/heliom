@@ -4,12 +4,7 @@ import { InstallationDetailsForm } from "../data/InstallationDetails";
 import { toast } from "react-toastify";
 import { validation } from "@/utils/validation";
 
-function InstallationDetails({
-  setActiveTab,
-  isLastStep,
-  activeTab,
-  handleBack,
-}) {
+function InstallationDetails({ setActiveTab, isLastStep, handleBack }) {
   const [formData, setFormData] = useState();
 
   const [loadingState, setLoadingState] = useState(false);
