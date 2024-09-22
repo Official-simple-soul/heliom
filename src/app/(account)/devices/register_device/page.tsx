@@ -1,15 +1,11 @@
 import React from 'react';
-import GoBack from '@/components/GoBack';
 import MultiForm from './components/MultiForm';
+import BackInfo from '@/components/BackInfo';
 
 function page() {
   return (
     <div>
-      <GoBack />
-      <div className="space-y- mb-10">
-        <p className='font-h-medium text-[28px]'>Register a Device</p>
-        <p className='text-sm text-gray-500'>Register your device here</p>
-      </div>
+      <BackInfo main={'Register a Device'} sub={'Register your device here'} />
       <MultiForm />
     </div>
   );

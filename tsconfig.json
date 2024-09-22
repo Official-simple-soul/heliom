@@ -27,6 +27,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/(auth)/signup/components/RoleSelection.jsx"
-, "src/app/(account)/devices/register_device/components/InstallationDetails.jsx", "src/app/(account)/devices/register_device/components/MeterDetails.jsx", "src/app/(account)/devices/register_device/components/RegulatoryCompliance.jsx", "src/app/(account)/devices/register_device/components/TechnicalSpecifications.jsx"  ],
+, "src/app/(account)/devices/register_device/components/InstallationDetails.jsx", "src/app/(account)/devices/register_device/components/MeterDetails.jsx", "src/app/(account)/devices/register_device/components/RegulatoryCompliance.jsx", "src/app/(account)/devices/register_device/components/TechnicalSpecifications.jsx", "src/app/(auth)/signup/components/SignUp.jsx"  ],
   "exclude": ["node_modules"]
 }
