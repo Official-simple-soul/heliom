@@ -26,9 +26,9 @@ export const TechnicalSpecificationForm = () => {
       },
     },
     {
-      id: "specification",
+      id: "firm_ware",
       label: "",
-      name: "specification",
+      name: "firm_ware",
       eType: "text",
       dType: "string",
       placeholder: "Version of the software running on the meter",
