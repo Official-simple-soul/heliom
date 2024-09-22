@@ -1,16 +1,14 @@
+import React from "react";
 import { useState } from "react";
 import FormBuilder from "@/dynamics/FormBuilder";
-import { InstallationDetailsForm } from "../data/InstallationDetails";
-import { toast } from "react-toastify";
+import { AccountInfoForm } from "../data/AccountInfo";
+import { useGlobalContext } from "@/store/context";
 import { validation } from "@/utils/validation";
+import { toast } from "react-toastify";
 
-function InstallationDetails({
-  setActiveTab,
-  isLastStep,
-  activeTab,
-  handleBack,
-}) {
+export default function AccountInfo({ setActiveTab, isLastStep, handleBack }) {
   const [formData, setFormData] = useState();
+  const { setFormValues } = useGlobalContext();
 
   const [loadingState, setLoadingState] = useState(false);
 
@@ -19,19 +17,19 @@ function InstallationDetails({
       toast.error("Complete all form fields");
       return;
     }
-    setLoadingState(true);
+
     console.log("Info values:", formData);
+    setFormValues((prev) => ({ ...prev, ...formData }));
     setLoadingState(false);
     // Proceed to next tab
     setActiveTab();
   };
 
   console.log("Form data", formData);
-
   return (
     <div className="bg-[#FFFFFF] p-10 rounded-[20px] flex flex-col justify-between min-h-[607px]">
       <FormBuilder
-        elements={InstallationDetailsForm()}
+        elements={AccountInfoForm()}
         formData={formData}
         setFormData={setFormData}
         loadingState={loadingState}
@@ -55,5 +53,3 @@ function InstallationDetails({
     </div>
   );
 }
-
-export default InstallationDetails;
