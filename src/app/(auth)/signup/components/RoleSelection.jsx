@@ -1,8 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
-const RoleSelection = ({ setPage }) => {
-  const [selectedRole, setSelectedRole] = useState(null);
+const RoleSelection = ({ setPage, selectedRole, setSelectedRole }) => {
 
   const handleRoleSelect = (role) => {
     setSelectedRole(role);
@@ -10,9 +9,7 @@ const RoleSelection = ({ setPage }) => {
 
   const handleNext = () => {
     if (selectedRole) {
-      console.log(`Selected Role: ${selectedRole}`);
       setPage(2);
-      // Navigate to the next step or perform the next action
     }
   };
 

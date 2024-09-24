@@ -17,15 +17,11 @@ function MeterDetails({ setActiveTab, isLastStep }) {
       toast.error("Complete all form fields");
       return;
     }
-
-    console.log("Info values:", formData);
     setFormValues((prev) => ({ ...prev, ...formData }));
     setLoadingState(false);
     // Proceed to next tab
     setActiveTab();
   };
-
-  console.log("Form data", formData);
 
   return (
     <div className="bg-[#FFFFFF] p-10 rounded-[20px] flex flex-col justify-between min-h-[607px]">

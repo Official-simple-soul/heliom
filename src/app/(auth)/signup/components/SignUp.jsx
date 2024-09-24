@@ -5,26 +5,21 @@ import { signUpFormElements } from '../data/signUpForm';
 import StatusModal from '@/components/StatusModal';
 import { useRouter } from 'next/navigation';
 
-type FormData = {
-  [key: string]: string | number | boolean;
-};
-
-interface SignUpProps {
-  setPage: (page: number) => void;
-}
-
-const SignUp: React.FC<SignUpProps> = ({ setPage }) => {
-  const [formData] = useState({});
-  const [loadingState, setLoadingState] = useState<boolean>(false);
+const SignUp = ({ setPage, onSubmit }) => {
+  const [loadingState, setLoadingState] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const navigate = useRouter();
 
-  const handleSignUp = (formValues: FormData) => {
+  const handleSignUp = async (formValues) => {
     setLoadingState(true);
-    console.log('Sign Up Data:', formValues);
-    // Simulate API call and response
-    setSuccessModal(true);
-    setLoadingState(false);
+    try {
+      await onSubmit(formValues);
+      setSuccessModal(true);
+    } catch (error) {
+      console.log('error', error.message)
+    } finally {
+      setLoadingState(false);
+    }
   };
 
   const handleBackButtonClick = () => {
@@ -44,7 +39,6 @@ const SignUp: React.FC<SignUpProps> = ({ setPage }) => {
 
           <FormBuilder
             elements={signUpFormElements(handleBackButtonClick)}
-            formData={formData}
             onSubmit={handleSignUp}
             loadingState={loadingState}
           />

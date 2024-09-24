@@ -4,9 +4,11 @@ import TechnicalSpecifications from "./TechnicalSpecifications";
 import MeterDetails from "./MeterDetails";
 import InstallationDetails from "./InstallationDetails";
 import AccountInfo from "./AccountInfo";
+import { useGlobalContext } from "@/store/context";
 
 export default function MultiForm() {
   const [activeTab, setActiveTab] = useState(0);
+  const { formValues } = useGlobalContext();
 
   const tabs = [
     "Meter Details",
@@ -22,7 +24,7 @@ export default function MultiForm() {
       setActiveTab(currentIndex + 1);
     } else {
       // Handle final submission (e.g., API call)
-      console.log("All forms submitted");
+      console.log("All forms submitted", formValues);
     }
   };
 

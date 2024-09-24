@@ -1,19 +1,18 @@
 import { useState } from "react";
 import FormBuilder from "@/dynamics/FormBuilder";
 import { RegulatoryComplianceForm } from "../data/RegulatoryComplianceForm";
+import { useGlobalContext } from "@/store/context";
 
 function RegulatoryCompliance() {
   const [formData, setFormData] = useState();
-
+  const { setFormValues } = useGlobalContext();
   const [loadingState, setLoadingState] = useState(false);
 
-  const handleSubmit = (formValues) => {
+  const handleSubmit = () => {
     setLoadingState(true);
-    console.log("Info values:", formValues);
+    setFormValues((prev) => ({ ...prev, ...formData }));
     setLoadingState(false);
   };
-
-  console.log("Form data", formData);
 
   return (
     <div className="bg-[#FFFFFF] p-10 rounded-[20px] flex flex-col justify-between min-h-[607px]">

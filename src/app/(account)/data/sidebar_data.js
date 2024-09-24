@@ -1,5 +1,5 @@
 // In Production
-import { MdSpaceDashboard } from 'react-icons/md';
+import { MdAccountBox, MdSpaceDashboard } from 'react-icons/md';
 import { IoPerson } from 'react-icons/io5';
 import { FaTasks } from 'react-icons/fa';
 import { IoSettings } from 'react-icons/io5';
@@ -16,6 +16,12 @@ export const sideItem = [
     name: 'My Devices',
     link: '/devices',
     logo: <IoPerson />,
+  },
+  {
+    authorizedUsers: ['all'],
+    name: 'Account',
+    link: '/account',
+    logo: <MdAccountBox />,
   },
   {
     authorizedUsers: ['all'],

@@ -90,7 +90,7 @@ const PageWrapper = ({ children, sideItem, route }) => {
 
             <div className="flex gap-4 items-center">
             <div
-                  className="border border-gray-200 cursor-pointer relative bg-white p-1 rounded-lg flex justify-center"
+                  className="hidden md:flex border border-gray-200 cursor-pointer relative bg-white p-1 rounded-lg justify-center"
                   onClick={handleNotification}
                 >
                   <FaRegBell className='text-xl text-gray-500' />
@@ -120,7 +120,7 @@ const PageWrapper = ({ children, sideItem, route }) => {
           </nav>
 
           <div
-            className={`md:ml-6 p-6 pt-20 my-8 md:pl-60 min-h-[100vh] ${trans}`}
+            className={`md:ml-6 p-6 pt-20 my-8 md:pl-60 min-h-screen ${trans}`}
             style={{ backgroundColor: mainBgColor, color: textColor }}
           >
             {children}
