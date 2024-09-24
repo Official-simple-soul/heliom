@@ -11,7 +11,7 @@ const Page: React.FC = () => {
 
 
 
-const onSubmit = async (formData) => {
+const onSubmit = async (formData: object) => {
   console.log('.. Role ..', selectedRole, formData)
   setUserProfile({...formData, user: selectedRole})
 }
