@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Button from '@/components/Button'; // Adjust the import to your Button path
+import Button from '@/components/Button';
 import { FaPlus } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { useGlobalContext } from '@/store/context';
