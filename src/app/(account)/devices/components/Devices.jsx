@@ -8,6 +8,7 @@ import NoDevice from '@/components/NoDevice';
 function Devices() {
   const [activeTab, setActiveTab] = useState('added');
 
+
   const data = activeTab === 'added' ? tableData : [];
 
   return (

@@ -3,13 +3,11 @@ import React from 'react';
 import Button from '@/components/Button'; // Adjust the import to your Button path
 import { FaPlus } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { useGlobalContext } from '@/store/context';
 
-function Top({activeTab, setActiveTab}) {
-const navigate = useRouter()
-
-  const handleRegisterDeviceClick = () => {
-    navigate.push('/devices/register_device')
-  };
+function Top({ activeTab, setActiveTab }) {
+  const navigate = useRouter();
+  const { userProfile } = useGlobalContext();
 
   return (
     <div className="mb-4 space-y-10">
@@ -20,17 +18,50 @@ const navigate = useRouter()
             View and manage your devices here
           </p>
         </div>
-        <Button
-          onClick={() => handleRegisterDeviceClick()}
-          icon={<FaPlus />}
-          text="Register Device"
-          styles="hover:bg-blue-700"
-        />
+        <div className="flex items-center space-x-2">
+          {userProfile.user === 'seller' && (
+          
+            <Button
+            onClick={() => navigate.push('/devices/add_device')}
+            icon={<FaPlus />}
+            text="Add Device"
+            styles="hover:bg-blue-700"
+          />
+          )}
+            <Button
+              onClick={() => navigate.push('/devices/register_device')}
+              icon={<FaPlus />}
+              text="Register Device"
+              buttonColor="white"
+              textColor="#0F3CB1"
+              styles="hover:bg-blue-700"
+            />
+        </div>
       </div>
-      <div className="flex items-center">
-        <button className={`${activeTab === 'added'? 'border border-pri text-pri bg-[#eef0fe]':''} text-sm font-h-medium px-4 py-1 rounded`} onClick={() => setActiveTab('added')}>Added Devices</button>
-        <button className={`${activeTab === 'registered'? 'border border-pri text-pri bg-[#eef0fe]':''} text-sm font-h-medium px-4 py-1 rounded`} onClick={() => setActiveTab('registered')}>Registered Devices</button>
-      </div>
+      {userProfile.user === 'seller' && (
+        <div className="flex items-center">
+          <button
+            className={`${
+              activeTab === 'added'
+                ? 'border border-pri text-pri bg-[#eef0fe]'
+                : ''
+            } text-sm font-h-medium px-4 py-1 rounded`}
+            onClick={() => setActiveTab('added')}
+          >
+            Added Devices
+          </button>
+          <button
+            className={`${
+              activeTab === 'registered'
+                ? 'border border-pri text-pri bg-[#eef0fe]'
+                : ''
+            } text-sm font-h-medium px-4 py-1 rounded`}
+            onClick={() => setActiveTab('registered')}
+          >
+            Registered Devices
+          </button>
+        </div>
+      )}
     </div>
   );
 }
