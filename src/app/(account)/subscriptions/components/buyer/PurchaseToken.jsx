@@ -21,7 +21,7 @@ function PurchaseToken({ onClose }) {
   };
 
   return (
-    <div className="bg-[#FFFFFF] p-6 rounded-[20px] flex flex-col gap-10 h-[703px]">
+    <div className="bg-[#FFFFFF] p-6 rounded-[20px] flex flex-col gap-10">
       <div className="border-b border-[#E1E4E5] pb-4 mb-0">
         <h1 className="font-medium font-h-medium text-[24px] leading-6">
           Purchase Token
