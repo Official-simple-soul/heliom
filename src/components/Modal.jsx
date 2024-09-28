@@ -1,7 +1,6 @@
-import { ThemeColor } from "@/constant/themeColor";
-import { IoCloseOutline } from "react-icons/io5";
+import { ThemeColor } from "@/constants/themeColor";
 
-function Modal({ isOpen, onClose, children, maxWidth = "864px" }) {
+function Modal({ isOpen, onClose, children, maxWidth = "640px" }) {
   const { textColor, bgColor, trans } = ThemeColor();
   return (
     <>
