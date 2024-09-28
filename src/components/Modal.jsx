@@ -14,7 +14,7 @@ function Modal({ isOpen, onClose, children, maxWidth = "864px" }) {
             onClick={onClose}
           ></div>
           <div
-            className="p-4 rounded-lg z-50 sm:w-[95%] mx-4 mx-auto overflow-auto max-h-[95vh]"
+            className="p-4 rounded-lg z-50 sm:w-[95%] mx-auto overflow-auto max-h-[95vh]"
             style={{ maxWidth, backgroundColor: bgColor, color: textColor }}
           >
             <div className="text-right">
