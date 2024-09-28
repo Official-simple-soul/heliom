@@ -3,14 +3,17 @@ import React, { useState } from 'react';
 import FormBuilder from '@/dynamics/FormBuilder';
 import { loginFormElements } from './data/loginForm';
 import { useRouter } from 'next/navigation';
+import { useGlobalContext } from '@/store/context';
 
 const Login: React.FC = () => {
   const [formData] = useState({});
+  const {setUserProfile} = useGlobalContext()
   const [loadingState, setLoadingState] = useState<boolean>(false);
 const navigate = useRouter()
   const handleLogin = (formValues: FormData) => {
     setLoadingState(true);
     console.log('Login Data:', formValues);
+    setUserProfile({...formValues, user: 'seller'});
     navigate.replace('/dashboard');
     setLoadingState(false);
   };

@@ -26,6 +26,11 @@ function TableSection({tableData}) {
         onRowSelectionModelChange={handleRowSelectionModelChange}
         loading={isPending}
         pageSize={10}
+        menuItem={true}
+        menuItems={[
+          {label: 'View Device', value: 'view'},
+          {label: 'Delete Device', value: 'delete'},
+        ]}
         pageSizeOptions={[10, 20, 50, 100]}
         onRowClick={handleRowClick}
         styles={{

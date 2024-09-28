@@ -5,12 +5,14 @@ import FormBuilder from '@/dynamics/FormBuilder';
 import { useRouter } from 'next/navigation';
 import { editProfileFormElement } from '../data/editProfileFormElement';
 import { CiCamera } from 'react-icons/ci';
+import { useGlobalContext } from '@/store/context';
 
 function EditProfile() {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useRouter();
   const [selectedImage, setSelectedImage] = useState(null);
+  const {userProfile} = useGlobalContext()
 
   // Handle the image upload
   const handleImageChange = (e) => {
@@ -86,7 +88,7 @@ console.log(selectedImage);
     </div>
 
         <FormBuilder
-          elements={editProfileFormElement()}
+          elements={editProfileFormElement(userProfile?.user)}
           formData={formData}
           setFormData={setFormData}
           loadingState={loading}

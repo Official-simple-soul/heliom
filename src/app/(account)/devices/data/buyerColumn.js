@@ -7,7 +7,7 @@ export const buyerMeterColumn = () => {
     },
     {
       field: '',
-      headerName: 'Name',
+      headerName: 'Serial No.',
       width: 60,
       renderCell: () => (
         <div
@@ -44,30 +44,34 @@ export const buyerMeterColumn = () => {
       valueGetter: (params) => `${params?.name || 'N/A'}`,
     },
     {
-      field: 'power_factor',
-      headerName: 'Power Factor',
+      field: 'meter_type',
+      headerName: 'Meter Type',
       flex: 1,
     },
     {
-      field: 'power_capacity',
-      headerName: 'Power Capacity (W)',
+      field: 'phase_type',
+      headerName: 'Phase Type',
       flex: 1,
     },
     {
-      field: 'seller_name',
-      headerName: 'Seller Name',
+      field: 'power_rating',
+      headerName: 'Power Rating (W)',
+      flex: 1,
+    },
+    {
+      field: 'voltage',
+      headerName: 'Voltage (V)',
       flex: 1,
     },
     {
       field: 'status',
       headerName: 'Status',
       flex: 1,
-      // width: 100,
       renderCell: (params) => (
         <span
           style={{
-            backgroundColor: params?.value === 'Active' ? '#D6eee2' : '#ffd0d0',
-            color: params?.value === 'Active' ? '#009d48' : '#d60000',
+            backgroundColor: params?.value === 'Online' ? '#D6eee2' : params?.value === 'Offline' ? '#ffd0d0': '#f6e9d6',
+            color: params?.value === 'online' ? '#009d48' : params?.value === 'offline'?'#d60000' : '#d68000',
             padding: '5px 10px',
             borderRadius: '8px',
             textAlign: 'center',

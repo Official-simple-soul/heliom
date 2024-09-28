@@ -18,7 +18,7 @@ function BuyerDashboard() {
     );
 
     return () => intervals.forEach((interval) => clearInterval(interval));
-  }, []);
+  }, [counts]);
 
   return (
     <div className="flex h-screen w-full items-center justify-center">

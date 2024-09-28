@@ -1,12 +1,13 @@
-export const editProfileFormElement = () => {
-    return [
+export const editProfileFormElement = (user) => {
+  const seller = user === 'seller'  
+  const data = [
       {
-        id: "company_name",
+        id: seller? "company_name":"full_name",
         label: "",
-        name: "company_name",
+        name: seller? "company_name":"full_name",
         eType: "text",
         dType: "string",
-        placeholder: "Company Name",
+        placeholder: seller?"Company Name":"Full Name",
         mData: {
           variant: "outlined",
           width: 48,
@@ -15,12 +16,12 @@ export const editProfileFormElement = () => {
             fontSize: "14px",
             color: "#B9B8B8",
           },
-          custom_label: "Company Name",
+          custom_label: seller?"Company Name":"Full Name",
         },
         validation: {
           required: {
             value: true,
-            message: "Company name is required",
+            message: `${seller? 'Company name': 'Full name'} is required`,
           },
         },
       },
@@ -49,12 +50,12 @@ export const editProfileFormElement = () => {
         },
       },
       {
-        id: "company_address",
+        id: seller?"company_address":"address",
         label: "",
-        name: "company_address",
+        name: seller?"company_address":"address",
         eType: "text",
         dType: "string",
-        placeholder: "Company Address",
+        placeholder: seller?"Company Address":"Address",
         mData: {
           width: 48,
           variant: "outlined",
@@ -63,12 +64,12 @@ export const editProfileFormElement = () => {
             fontSize: "14px",
             color: "#B9B8B8",
           },
-          custom_label: "Company Address",
+          custom_label: seller?"Company Address":"Address",
         },
         validation: {
           required: {
             value: true,
-            message: "Company address must be provided",
+            message: `${seller? 'Company adress':'Adress'} must be provided`,
           },
         },
       },
@@ -145,5 +146,7 @@ export const editProfileFormElement = () => {
         },
       },
     ];
+
+    return seller?data:data.filter(e=> e.id !== 'tin' && e.id !== 'cac_registration_number')
   };
   
