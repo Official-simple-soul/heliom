@@ -97,7 +97,7 @@ export const purchaseTokenForm = () => {
       id: "amount",
       label: "",
       name: "amount",
-      eType: "text",
+      eType: "number",
       dType: "string",
       placeholder: "Enter amount",
       mData: {

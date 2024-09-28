@@ -1,4 +1,5 @@
 import { ThemeColor } from "@/constant/themeColor";
+import { IoCloseOutline } from "react-icons/io5";
 
 function Modal({ isOpen, onClose, children, maxWidth = "864px" }) {
   const { textColor, bgColor, trans } = ThemeColor();
@@ -21,7 +22,7 @@ function Modal({ isOpen, onClose, children, maxWidth = "864px" }) {
                 className="text-gray-500 hover:text-gray-700"
                 onClick={onClose}
               >
-                X
+                <IoCloseOutline size={24} />
               </button>
             </div>
             {children}
