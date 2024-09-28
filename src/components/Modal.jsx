@@ -2,7 +2,7 @@ import { ThemeColor } from "@/constant/themeColor";
 import { IoCloseOutline } from "react-icons/io5";
 
 function Modal({ isOpen, onClose, children, maxWidth = "640px" }) {
-  const { textColor, bgColor, trans } = ThemeColor();
+  const { textColor, bgColor } = ThemeColor();
   return (
     <>
       {isOpen ? (

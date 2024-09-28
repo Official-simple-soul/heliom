@@ -1,13 +1,12 @@
 // In Production
-import Image from 'next/image';
-import React from 'react';
-import { AiOutlineLogout } from 'react-icons/ai';
-import { BiLogOut } from 'react-icons/bi';
+import Image from "next/image";
+import React from "react";
+import { AiOutlineLogout } from "react-icons/ai";
 
 export default function ProfileDropDown({ profileDropDown }) {
   const handleLogout = async () => {
     localStorage.clear();
-    window.location.replace('/login');
+    window.location.replace("/login");
   };
 
   const handleBuyerAccount = () => {};
@@ -16,30 +15,33 @@ export default function ProfileDropDown({ profileDropDown }) {
   const otherAccounts = [
     {
       account_id: 1,
-      account_name: 'Homeland Security',
-      avatar: 'https://i.pravatar.cc/150?img=1',
+      account_name: "Homeland Security",
+      avatar: "https://i.pravatar.cc/150?img=1",
     },
     {
       account_id: 2,
-      account_name: 'Gate PHCN',
-      avatar: 'https://i.pravatar.cc/150?img=2',
+      account_name: "Gate PHCN",
+      avatar: "https://i.pravatar.cc/150?img=2",
     },
     {
       account_id: 3,
-      account_name: 'Abuja PHCN',
-      avatar: 'https://i.pravatar.cc/150?img=3',
+      account_name: "Abuja PHCN",
+      avatar: "https://i.pravatar.cc/150?img=3",
     },
   ];
 
   return (
-    <div className={`${profileDropDown ? 'block' : 'hidden'}`}>
+    <div className={`${profileDropDown ? "block" : "hidden"}`}>
       <div className="bg-white fixed top-24 right-8 rounded shadow z-50 border border-gray-300">
         <div className="absolute bg-white h-6 w-6 rotate-45 right-6 -top-3 border-l border-t border-gray-300"></div>
         <div className="footer py-3">
           <div className="">
-            <div className="flex items-center space-x-4 hover:bg-gray-200 py-3 px-5">
+            <div
+              onClick={handleBuyerAccount}
+              className="flex items-center space-x-4 hover:bg-gray-200 py-3 px-5"
+            >
               <Image
-                src={'https://i.pravatar.cc/150?img=4'}
+                src={"https://i.pravatar.cc/150?img=4"}
                 width={30}
                 height={30}
                 alt="user"
