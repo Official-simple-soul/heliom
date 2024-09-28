@@ -1,6 +1,6 @@
-import { ThemeColor } from '@/constants/themeColor';
+import { ThemeColor } from "@/constant/themeColor";
 
-function Modal({ isOpen, onClose, children, maxWidth = '640px' }) {
+function Modal({ isOpen, onClose, children, maxWidth = "864px" }) {
   const { textColor, bgColor, trans } = ThemeColor();
   return (
     <>
