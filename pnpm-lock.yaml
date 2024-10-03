@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@influxdata/influxdb-client':
+        specifier: ^1.35.0
+        version: 1.35.0
       '@msflib/react':
         specifier: 0.0.7
-        version: 0.0.7(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@mui/material@6.1.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/system@6.1.0(@types/react@18.3.5)(react@18.3.1))(@testing-library/dom@8.20.1)(@types/babel__core@7.20.5)(@types/react-dom@18.3.0)(@types/react@18.3.5)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)
+        version: 0.0.7(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@mui/material@6.1.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/system@6.1.0(@types/react@18.3.5)(react@18.3.1))(@testing-library/dom@8.20.1)(@types/babel__core@7.20.5)(@types/react-dom@18.3.0)(@types/react@18.3.5)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@2.19.0)
       next:
         specifier: 14.2.8
         version: 14.2.8(@babel/core@7.25.2)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -977,6 +980,9 @@ packages:
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
+
+  '@influxdata/influxdb-client@1.35.0':
+    resolution: {integrity: sha512-woWMi8PDpPQpvTsRaUw4Ig+nOGS/CWwAwS66Fa1Vr/EkW+NEwxI8YfPBsdBMn33jK2Y86/qMiiuX/ROHIkJLTw==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -7528,6 +7534,8 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
+  '@influxdata/influxdb-client@1.35.0': {}
+
   '@isaacs/cliui@8.0.2':
     dependencies:
       string-width: 5.1.2
@@ -7748,7 +7756,7 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
-  '@msflib/react@0.0.7(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@mui/material@6.1.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/system@6.1.0(@types/react@18.3.5)(react@18.3.1))(@testing-library/dom@8.20.1)(@types/babel__core@7.20.5)(@types/react-dom@18.3.0)(@types/react@18.3.5)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)':
+  '@msflib/react@0.0.7(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@mui/material@6.1.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/system@6.1.0(@types/react@18.3.5)(react@18.3.1))(@testing-library/dom@8.20.1)(@types/babel__core@7.20.5)(@types/react-dom@18.3.0)(@types/react@18.3.5)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@2.19.0)':
     dependencies:
       '@dnd-kit/core': 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@dnd-kit/sortable': 8.0.0(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -7764,7 +7772,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-icons: 4.12.0(react@18.3.1)
-      react-scripts: 5.0.1(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@types/babel__core@7.20.5)(eslint@8.57.0)(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)
+      react-scripts: 5.0.1(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@types/babel__core@7.20.5)(eslint@8.57.0)(react@18.3.1)(type-fest@2.19.0)(typescript@4.9.5)
       typescript: 4.9.5
       web-vitals: 2.1.4
     transitivePeerDependencies:
@@ -8029,7 +8037,7 @@ snapshots:
     dependencies:
       playwright: 1.47.0
 
-  '@pmmmwh/react-refresh-webpack-plugin@0.5.15(react-refresh@0.11.0)(type-fest@0.21.3)(webpack-dev-server@4.15.2(webpack@5.94.0))(webpack@5.94.0)':
+  '@pmmmwh/react-refresh-webpack-plugin@0.5.15(react-refresh@0.11.0)(type-fest@2.19.0)(webpack-dev-server@4.15.2(webpack@5.94.0))(webpack@5.94.0)':
     dependencies:
       ansi-html: 0.0.9
       core-js-pure: 3.38.1
@@ -8041,7 +8049,7 @@ snapshots:
       source-map: 0.7.4
       webpack: 5.94.0
     optionalDependencies:
-      type-fest: 0.21.3
+      type-fest: 2.19.0
       webpack-dev-server: 4.15.2(webpack@5.94.0)
 
   '@popperjs/core@2.11.8': {}
@@ -12684,10 +12692,10 @@ snapshots:
 
   react-refresh@0.11.0: {}
 
-  react-scripts@5.0.1(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@types/babel__core@7.20.5)(eslint@8.57.0)(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5):
+  react-scripts@5.0.1(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@types/babel__core@7.20.5)(eslint@8.57.0)(react@18.3.1)(type-fest@2.19.0)(typescript@4.9.5):
     dependencies:
       '@babel/core': 7.25.2
-      '@pmmmwh/react-refresh-webpack-plugin': 0.5.15(react-refresh@0.11.0)(type-fest@0.21.3)(webpack-dev-server@4.15.2(webpack@5.94.0))(webpack@5.94.0)
+      '@pmmmwh/react-refresh-webpack-plugin': 0.5.15(react-refresh@0.11.0)(type-fest@2.19.0)(webpack-dev-server@4.15.2(webpack@5.94.0))(webpack@5.94.0)
       '@svgr/webpack': 5.5.0
       babel-jest: 27.5.1(@babel/core@7.25.2)
       babel-loader: 8.3.0(@babel/core@7.25.2)(webpack@5.94.0)

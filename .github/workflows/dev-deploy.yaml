@@ -10,6 +10,10 @@ jobs:
     env:
       NEXT_PUBLIC_API_URL: 'https://${{ secrets.BACKEND_HOST }}/api/v1'
       NEXT_PUBLIC_BASE_URL: 'https://${{ secrets.BACKEND_HOST }}'
+      NEXT_PUBLIC_INFLUX_DB_URL: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_URL }}
+      NEXT_PUBLIC_INFLUX_DB_TOKEN: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_TOKEN }}
+      NEXT_PUBLIC_INFLUX_DB_ORG: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_ORG }}
+      NEXT_PUBLIC_INFLUX_DB_BUCKET: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_BUCKET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3

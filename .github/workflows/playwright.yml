@@ -1,11 +1,21 @@
 name: Playwright Tests
+
 on:
   pull_request:
     branches: [main, dev]
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env: 
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+      NEXT_PUBLIC_INFLUX_DB_URL: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_URL }}
+      NEXT_PUBLIC_INFLUX_DB_TOKEN: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_TOKEN }}
+      NEXT_PUBLIC_INFLUX_DB_ORG: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_ORG }}
+      NEXT_PUBLIC_INFLUX_DB_BUCKET: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_BUCKET }}
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
