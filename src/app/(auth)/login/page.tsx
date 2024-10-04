@@ -13,7 +13,7 @@ const navigate = useRouter()
   const handleLogin = (formValues: FormData) => {
     setLoadingState(true);
     console.log('Login Data:', formValues);
-    setUserProfile({...formValues, user: 'seller'});
+    setUserProfile({...formValues, user: 'buyer'});
     navigate.replace('/dashboard');
     setLoadingState(false);
   };
