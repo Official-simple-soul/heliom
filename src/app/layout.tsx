@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ContextProvider } from '@/store/context';
+import ClientProvider from './ClientProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,8 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased bg-white`}>
-        <ContextProvider>{children}</ContextProvider>
+      <body className="antialiased bg-white">
+        <ClientProvider>
+          <ContextProvider>{children}</ContextProvider>
+        </ClientProvider>
       </body>
     </html>
   );
