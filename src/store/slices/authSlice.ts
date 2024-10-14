@@ -102,7 +102,7 @@ export const fetchAccountProfile = createAsyncThunk(
   'auth/fetchAccountProfile',
   async (userId: string, { rejectWithValue }) => {
     try {
-      return await getAccountProfile(userId);
+      return await getAccountProfile();
     } catch (error: unknown) {
       if (error instanceof Error) {
         return rejectWithValue(error.message);
