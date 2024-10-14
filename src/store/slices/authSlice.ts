@@ -69,7 +69,14 @@ export const signUpUser = createAsyncThunk(
   'auth/signUpUser',
   async (formData: Credentials, { dispatch, rejectWithValue }) => {
     try {
-      await callApi('POST', '/register', formData, null, {}, true);
+      await callApi(
+        'POST',
+        '/register',
+        formData as unknown as null,
+        null,
+        {},
+        true
+      );
 
       const credentials = {
         username: formData.email,
