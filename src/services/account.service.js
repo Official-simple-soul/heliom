@@ -1,11 +1,5 @@
 import { createData, fetchData, updateData } from '@/hooks/api';
 
-export const getAccountProfile = async (userId) =>
-  await fetchData(`/account/${userId}`);
-
-export const updateAccountProfile = async (profileData) =>
-  await updateData('/account', profileData.id, profileData);
-
 export const createSeller = async (sellerData) =>
   await createData('/seller', sellerData);
 
@@ -18,7 +12,6 @@ export const updateSellerProfile = async (sellerData) =>
 export const deleteSeller = async (sellerId) =>
   await deleteData('/seller', sellerId);
 
-// Buyer CRUD operations
 export const createBuyer = async (buyerData) =>
   await createData('/buyer', buyerData);
 
