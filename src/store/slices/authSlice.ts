@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { callApi } from '@/hooks/api';
+import {
+  getAccountProfile,
+  updateAccountProfile,
+} from '@/services/account.service';
 
 interface Credentials {
   email?: string;
