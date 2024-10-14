@@ -19,9 +19,9 @@ function Dashboard() {
     meterTopic: 'device/kodehauz/2B74A838',
   });
   const [meterOptions, setMeterOptions] = useState([]);
-  console.log('pipe', dataPipe);
   const query = meterTopicQuery('testing');
 
+  // TODO: To be removed
   console.log('profile', accountProfile);
 
   useEffect(() => {

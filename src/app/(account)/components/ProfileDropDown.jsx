@@ -11,11 +11,7 @@ export default function ProfileDropDown({ profileDropDown }) {
   const router = useRouter();
 
   const handleLogout = async () => {
-    // Dispatch the logout action
     dispatch(logout());
-
-    // Clear localStorage and redirect to login
-    localStorage.clear();
     router.replace('/login');
   };
 

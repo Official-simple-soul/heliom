@@ -16,7 +16,6 @@ interface AccountProfile {
   username: string;
   email: string;
   token: string;
-  // Add any other fields that are part of the account profile
 }
 
 interface AuthState {
@@ -41,7 +40,6 @@ const encodeFormData = (data: Credentials) => {
     .join('&');
 };
 
-// Thunk for logging in a user
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (credentials: Credentials, { rejectWithValue }) => {
@@ -71,12 +69,10 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// Thunk for signing up a user and automatically logging in
 export const signUpUser = createAsyncThunk(
   'auth/signUpUser',
   async (formData: Credentials, { dispatch, rejectWithValue }) => {
     try {
-      // await createData('/register', formData);
       await callApi('POST', '/register', formData, null, {}, true);
 
       const credentials = {
@@ -95,7 +91,6 @@ export const signUpUser = createAsyncThunk(
   }
 );
 
-// Thunk for fetching account profile
 export const fetchAccountProfile = createAsyncThunk(
   'auth/fetchAccountProfile',
   async (userId: string, { rejectWithValue }) => {
@@ -110,7 +105,6 @@ export const fetchAccountProfile = createAsyncThunk(
   }
 );
 
-// Thunk for updating account profile
 export const updateAccountProfileThunk = createAsyncThunk(
   'auth/updateAccountProfile',
   async (profileData: AccountProfile, { rejectWithValue }) => {
