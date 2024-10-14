@@ -23,14 +23,14 @@ function Layout({
   );
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (localProfile) {
-  //     dispatch(setAccountProfile(localProfile));
-  //   } else if (!isAuthenticated) {
-  //     dispatch(logout());
-  //     router.replace('/login');
-  //   }
-  // }, [localProfile, isAuthenticated, dispatch, router]);
+  useEffect(() => {
+    if (localProfile) {
+      dispatch(setAccountProfile(localProfile));
+    } else if (!isAuthenticated) {
+      dispatch(logout());
+      router.replace('/login');
+    }
+  }, [localProfile, isAuthenticated, dispatch, router]);
 
   return (
     <PageWrapper route={pathname} sideItem={sideItem}>

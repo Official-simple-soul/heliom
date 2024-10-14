@@ -3,7 +3,7 @@ import {
   getAccountProfile,
   updateAccountProfile,
 } from '@/services/account.service';
-import { callApi, createData } from '@/hooks/api';
+import { callApi } from '@/hooks/api';
 
 interface Credentials {
   email?: string;
