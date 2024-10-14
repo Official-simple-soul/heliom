@@ -1,12 +1,12 @@
 export const signUpFormElements = (handleBackButtonClick) => {
   return [
     {
-      id: 'fullname',
+      id: 'first_name',
       label: '',
-      name: 'fullname',
+      name: 'first_name',
       eType: 'text',
       dType: 'string',
-      placeholder: 'Enter your full name',
+      placeholder: 'Enter your first name',
       mData: {
         variant: 'outlined',
         label_style: {
@@ -14,12 +14,35 @@ export const signUpFormElements = (handleBackButtonClick) => {
           fontSize: '12px',
           color: 'gray',
         },
-        custom_label: 'Full Name',
+        custom_label: 'First Name',
       },
       validation: {
         required: {
           value: true,
-          message: 'Full Name is required',
+          message: 'First Name is required',
+        },
+      },
+    },
+    {
+      id: 'last_name',
+      label: '',
+      name: 'last_name',
+      eType: 'text',
+      dType: 'string',
+      placeholder: 'Enter your last name',
+      mData: {
+        variant: 'outlined',
+        label_style: {
+          marginBottom: '10px',
+          fontSize: '12px',
+          color: 'gray',
+        },
+        custom_label: 'Last Name',
+      },
+      validation: {
+        required: {
+          value: true,
+          message: 'Last Name is required',
         },
       },
     },
@@ -51,6 +74,33 @@ export const signUpFormElements = (handleBackButtonClick) => {
       },
     },
     {
+      id: 'phone',
+      label: '',
+      name: 'phone',
+      eType: 'text',
+      dType: 'string',
+      placeholder: 'Enter your phone number',
+      mData: {
+        variant: 'outlined',
+        label_style: {
+          marginBottom: '10px',
+          fontSize: '12px',
+          color: 'gray',
+        },
+        custom_label: 'Phone Number',
+      },
+      validation: {
+        required: {
+          value: true,
+          message: 'Phone number is required',
+        },
+        pattern: {
+          value: /^[0-9]+$/,
+          message: 'Please enter a valid phone number',
+        },
+      },
+    },
+    {
       id: 'password',
       label: '',
       name: 'password',
@@ -74,6 +124,11 @@ export const signUpFormElements = (handleBackButtonClick) => {
         minLength: {
           value: 6,
           message: 'Password must be at least 6 characters',
+        },
+        pattern: {
+          value: /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/,
+          message:
+            'Password must contain at least one uppercase letter, one number, and one special character',
         },
       },
     },
@@ -101,6 +156,107 @@ export const signUpFormElements = (handleBackButtonClick) => {
         validate: {
           matchesPassword: (value, context) =>
             value === context.password || 'Passwords do not match',
+        },
+      },
+    },
+    {
+      id: 'date_of_birth',
+      label: '',
+      name: 'date_of_birth',
+      eType: 'date',
+      dType: 'string',
+      placeholder: 'Select your date of birth',
+      mData: {
+        variant: 'outlined',
+        label_style: {
+          marginBottom: '10px',
+          fontSize: '12px',
+          color: 'gray',
+        },
+        custom_label: 'Date of Birth',
+      },
+      validation: {
+        required: {
+          value: true,
+          message: 'Date of birth is required',
+        },
+      },
+    },
+    {
+      id: 'gender',
+      label: '',
+      name: 'gender',
+      eType: 'text',
+      dType: 'string',
+
+      mData: {
+        variant: 'outlined',
+        label_style: {
+          marginBottom: '10px',
+          fontSize: '12px',
+          color: 'gray',
+        },
+        options: [
+          { text: 'Male', value: 'male' },
+          { text: 'Female', value: 'female' },
+        ],
+        select: true,
+        custom_label: 'Gender',
+      },
+      validation: {
+        required: {
+          value: true,
+          message: 'Gender is required',
+        },
+      },
+    },
+    {
+      id: 'marital_status',
+      label: '',
+      name: 'marital_status',
+      eType: 'text',
+      dType: 'string',
+      mData: {
+        variant: 'outlined',
+        label_style: {
+          marginBottom: '10px',
+          fontSize: '12px',
+          color: 'gray',
+        },
+        select: true,
+        options: [
+          { text: 'Single', value: 'single' },
+          { text: 'Married', value: 'married' },
+        ],
+        custom_label: 'Marital Status',
+      },
+      validation: {
+        required: {
+          value: true,
+          message: 'Marital status is required',
+        },
+      },
+    },
+    {
+      id: 'address',
+      label: '',
+      name: 'address',
+      eType: 'text',
+      dType: 'string',
+      placeholder: 'Enter your address',
+      mData: {
+        variant: 'outlined',
+        label_style: {
+          marginBottom: '10px',
+          fontSize: '12px',
+          color: 'gray',
+        },
+        custom_label: 'Address',
+      },
+      validation: {
+        required: {
+          value: true,
+          message: 'Address is required',
         },
       },
     },

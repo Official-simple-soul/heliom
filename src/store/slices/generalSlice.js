@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   formValues: {},
+  isLoading: false,
 };
 
 const generalSlice = createSlice({
@@ -11,8 +12,11 @@ const generalSlice = createSlice({
     setFormValues: (state, action) => {
       state.formValues = action.payload;
     },
+    setLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
-export const { setFormValues } = generalSlice.actions;
+export const { setFormValues, setLoading } = generalSlice.actions;
 export default generalSlice.reducer;
