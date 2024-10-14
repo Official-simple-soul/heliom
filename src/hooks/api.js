@@ -12,11 +12,11 @@ export const callApi = async (
   }
 
   try {
-    const accountData = JSON.parse(localStorage.getItem('account'));
+    const accountProfile = JSON.parse(localStorage.getItem('accountProfile'));
 
     if (
       !noAuth &&
-      (!accountData || new Date() > new Date(accountData.expires))
+      (!accountProfile || new Date() > new Date(accountProfile.expires))
     ) {
       localStorage.clear();
       window.location.replace(
@@ -27,7 +27,7 @@ export const callApi = async (
 
     const authorization = noAuth
       ? {}
-      : { Authorization: `Bearer ${accountData?.access_token}` };
+      : { Authorization: `Bearer ${accountProfile?.access_token}` };
     workspace = workspace ? '/' + workspace.trim('/') : '';
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}${workspace}${endpoint}`,
@@ -72,13 +72,13 @@ export const fileUploadApi = async (
   workspace
 ) => {
   try {
-    const accountData = JSON.parse(localStorage.getItem('account'));
+    const accountProfile = JSON.parse(localStorage.getItem('account'));
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/${workspace}/${endpoint}`,
       {
         method,
         headers: {
-          Authorization: `Bearer ${accountData.access_token}`,
+          Authorization: `Bearer ${accountProfile.access_token}`,
         },
         body: data,
       }

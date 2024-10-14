@@ -4,26 +4,47 @@ import FormBuilder from '@/dynamics/FormBuilder';
 import { signUpFormElements } from '../data/signUpForm';
 import StatusModal from '@/components/StatusModal';
 import { useRouter } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUpUser } from '@/store/slices/authSlice';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { setLoading } from '@/store/slices/generalSlice';
 
-const SignUp = ({ setPage, onSubmit }) => {
-  const [loadingState, setLoadingState] = useState(false);
-  const [successModal, setSuccessModal] = useState(false);
+const SignUp = () => {
+  const dispatch = useDispatch();
   const navigate = useRouter();
+  const { loading } = useSelector((state) => state.auth);
+  const [successModal, setSuccessModal] = useState(false);
 
   const handleSignUp = async (formValues) => {
-    setLoadingState(true);
+    const payload = {
+      email: formValues.email,
+      phone: formValues.phone,
+      status: 'active',
+      role: 'user',
+      password: formValues.password,
+      profile: {
+        first_name: formValues.first_name,
+        last_name: formValues.last_name,
+        date_of_birth: formValues.date_of_birth,
+        gender: formValues.gender,
+        marital_status: formValues.marital_status,
+        address: formValues.address,
+      },
+    };
+    dispatch(setLoading(true));
     try {
-      await onSubmit(formValues);
+      await dispatch(signUpUser(payload)).unwrap();
       setSuccessModal(true);
     } catch (error) {
-      console.log('error', error.message)
+      toast.error(`Sign-up failed: ${error}`);
     } finally {
-      setLoadingState(false);
+      dispatch(setLoading(false));
     }
   };
 
   const handleBackButtonClick = () => {
-    setPage(1);
+    navigate.back();
   };
 
   return (
@@ -40,7 +61,7 @@ const SignUp = ({ setPage, onSubmit }) => {
           <FormBuilder
             elements={signUpFormElements(handleBackButtonClick)}
             onSubmit={handleSignUp}
-            loadingState={loadingState}
+            loadingState={loading}
           />
 
           <div className="my-4 text-center">
@@ -59,11 +80,13 @@ const SignUp = ({ setPage, onSubmit }) => {
       {successModal && (
         <StatusModal
           statusText="Account Created!"
-          statusDesc="You have successfully signed up as a buyer. Please go ahead and update your profile."
+          statusDesc="You have successfully signed up."
           onClick={() => navigate.replace('/dashboard')}
           type="success"
+          btnText="Proceed to Dashboard"
         />
       )}
+      <ToastContainer />
     </>
   );
 };

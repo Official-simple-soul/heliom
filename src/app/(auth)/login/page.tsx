@@ -1,21 +1,38 @@
 'use client';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import FormBuilder from '@/dynamics/FormBuilder';
 import { loginFormElements } from './data/loginForm';
 import { useRouter } from 'next/navigation';
-import { useGlobalContext } from '@/store/context';
+import { loginUser } from '@/store/slices/authSlice';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AppDispatch, RootState } from '@/store';
+import { setLoading } from '@/store/slices/generalSlice';
+
+interface FormData {
+  username: string;
+  password: string;
+}
 
 const Login: React.FC = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const navigate = useRouter();
   const [formData] = useState({});
-  const {setUserProfile} = useGlobalContext()
-  const [loadingState, setLoadingState] = useState<boolean>(false);
-const navigate = useRouter()
-  const handleLogin = (formValues: FormData) => {
-    setLoadingState(true);
-    console.log('Login Data:', formValues);
-    setUserProfile({...formValues, user: 'buyer'});
-    navigate.replace('/dashboard');
-    setLoadingState(false);
+  const { loading } = useSelector((state: RootState) => state.auth);
+
+  const handleLogin = async (formValues: FormData) => {
+    dispatch(setLoading(true));
+    try {
+      await dispatch(loginUser(formValues)).unwrap();
+
+      toast.success('Login successful!');
+      navigate.replace('/dashboard');
+    } catch (error) {
+      toast.error(`Login failed: ${error}`);
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
 
   return (
@@ -32,7 +49,7 @@ const navigate = useRouter()
           elements={loginFormElements}
           formData={formData}
           onSubmit={handleLogin}
-          loadingState={loadingState}
+          loadingState={loading}
         />
 
         <div className=" text-right">
@@ -56,6 +73,7 @@ const navigate = useRouter()
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
