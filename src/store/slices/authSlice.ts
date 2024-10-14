@@ -56,7 +56,7 @@ export const loginUser = createAsyncThunk(
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Login failed');
+        throw new Error(errorData.detail || 'Login failed');
       }
 
       const data: AccountProfile = await response.json();
