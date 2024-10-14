@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { ContextProvider } from '@/store/context';
 import ClientProvider from './ClientProvider';
-import Loader from '@/components/loader';
+import Loader from '@/components/Loader';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
