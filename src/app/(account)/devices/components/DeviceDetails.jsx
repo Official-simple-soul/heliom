@@ -50,7 +50,7 @@ function DeviceDetails() {
         </div>
       </div>
       <div className="mt-8 p-6 bg-white shadow-md rounded-lg">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             {/* Meter Details Section */}
             <div className="mb-8">
@@ -64,7 +64,7 @@ function DeviceDetails() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Serial No.</p>
-                  <p className="text-gray-900">PHED5UV#PHED5UV#</p>
+                  <p className="text-gray-900">PHED5UV</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Meter Type</p>
@@ -134,7 +134,7 @@ function DeviceDetails() {
             </div>
           </div>
           <div>
-            <GuagesDisplay />
+            <GuagesDisplay meterTopic={formData.meterTopic} />
           </div>
         </div>
       </div>

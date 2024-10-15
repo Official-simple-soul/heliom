@@ -3,15 +3,15 @@ import React from 'react';
 import Button from '@/components/Button';
 import { FaPlus } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import { useGlobalContext } from '@/store/context';
+import { useSelector } from 'react-redux';
 
 function Top({ activeTab, setActiveTab }) {
   const navigate = useRouter();
-  const { userProfile } = useGlobalContext();
+  const { currentUser } = useSelector((state) => state.auth);
 
   return (
     <div className="mb-4 space-y-10">
-      <div className="flex justify-between items-center">
+      <div className="md:flex space-y-4 md:space-y-0 justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold mb-1">My Devices</h1>
           <p className="text-gray-500 text-sm">
@@ -19,26 +19,25 @@ function Top({ activeTab, setActiveTab }) {
           </p>
         </div>
         <div className="flex items-center space-x-2">
-          {userProfile.user === 'seller' && (
-          
+          {currentUser?.type === 'seller' && (
             <Button
-            onClick={() => navigate.push('/devices/add_device')}
-            icon={<FaPlus />}
-            text="Add Device"
-            styles="hover:bg-blue-700"
-          />
-          )}
-            <Button
-              onClick={() => navigate.push('/devices/register_device')}
+              onClick={() => navigate.push('/devices/add_device')}
               icon={<FaPlus />}
-              text="Register Device"
-              buttonColor="white"
-              textColor="#0F3CB1"
-              styles="hover:bg-blue-700"
+              text="Add Device"
+              styles="hover:bg-blue-700 px-2 md:px-10"
             />
+          )}
+          <Button
+            onClick={() => navigate.push('/devices/register_device')}
+            icon={<FaPlus />}
+            text="Register Device"
+            buttonColor="white"
+            textColor="#0F3CB1"
+            styles="hover:bg-blue-700 px-2 md:px-10"
+          />
         </div>
       </div>
-      {userProfile.user === 'seller' && (
+      {currentUser?.type === 'seller' && (
         <div className="flex items-center">
           <button
             className={`${

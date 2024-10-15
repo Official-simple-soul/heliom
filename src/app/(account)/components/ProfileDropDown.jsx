@@ -2,39 +2,50 @@
 import Image from 'next/image';
 import React from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
-import { logout } from '@/store/slices/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, setCurrentUser } from '@/store/slices/authSlice';
 import { useRouter } from 'next/navigation';
+import { setOpenCreateAccountModal } from '@/store/slices/generalSlice';
+import { IoAddCircleOutline } from 'react-icons/io5';
+import AvatarWidget from '@/components/AvatarWidget';
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
-export default function ProfileDropDown({ profileDropDown }) {
+export default function ProfileDropDown({
+  profileDropDown,
+  setProfileDropDown,
+}) {
   const dispatch = useDispatch();
   const router = useRouter();
+  const { accountProfile, currentUser } = useSelector((state) => state.auth);
+  const { sellers, buyers } = useSelector((state) => state.user);
 
   const handleLogout = async () => {
     dispatch(logout());
     router.replace('/login');
   };
 
-  const handleBuyerAccount = () => {};
-  const handleOtherAccount = () => {};
+  const handleBuyerAccount = () => {
+    try {
+      dispatch(setCurrentUser({ type: 'buyer', account }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  const otherAccounts = [
-    {
-      account_id: 1,
-      account_name: 'Homeland Security',
-      avatar: 'https://i.pravatar.cc/150?img=1',
-    },
-    {
-      account_id: 2,
-      account_name: 'Gate PHCN',
-      avatar: 'https://i.pravatar.cc/150?img=2',
-    },
-    {
-      account_id: 3,
-      account_name: 'Abuja PHCN',
-      avatar: 'https://i.pravatar.cc/150?img=3',
-    },
-  ];
+  const handleSellerAccount = (account) => {
+    try {
+      dispatch(setCurrentUser({ type: 'seller', account }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleAccount = () => {
+    try {
+      dispatch(setCurrentUser({ type: 'general' }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={`${profileDropDown ? 'block' : 'hidden'}`}>
@@ -43,8 +54,8 @@ export default function ProfileDropDown({ profileDropDown }) {
         <div className="footer py-3">
           <div className="">
             <div
-              onClick={handleBuyerAccount}
-              className="flex items-center space-x-4 hover:bg-gray-200 py-3 px-5"
+              onClick={handleAccount}
+              className="flex items-center space-x-4 hover:bg-gray-200 py-3 px-5 cursor-pointer"
             >
               <Image
                 src={'https://i.pravatar.cc/150?img=4'}
@@ -54,29 +65,81 @@ export default function ProfileDropDown({ profileDropDown }) {
                 className="rounded-full"
               />
               <p className="text-gray-800 font-h-normal text-sm">
-                Favour Sunday
+                {accountProfile?.account?.email ?? 'test@example.com'}
               </p>
+              {currentUser?.type === 'general' && (
+                <IoIosCheckmarkCircleOutline className="text-green-400" />
+              )}
             </div>
-            {otherAccounts.map((account) => (
-              <div
-                key={account.account_id}
-                className="flex items-center space-x-4 cursor-pointer hover:bg-gray-200 py-3 px-5"
-                onClick={handleOtherAccount}
-              >
-                <Image
-                  src={account.avatar}
-                  width={30}
-                  height={30}
-                  alt="user"
-                  className="rounded-full"
-                />
-                <p className="text-gray-800 font-h-normal text-sm">
-                  {account.account_name}
-                </p>
+            {sellers && (
+              <div className="border">
+                <div className="py-1 px-5">
+                  <p className="text-black text-xs">Seller Accounts</p>
+                </div>
+                {sellers?.map((account) => (
+                  <div
+                    key={account.id}
+                    className={`flex items-center space-x-4 cursor-pointer hover:bg-gray-200 py-3 px-5`}
+                    onClick={() => handleSellerAccount(account)}
+                  >
+                    <AvatarWidget
+                      avatarUrl={account.avatar}
+                      owner={account.company_name}
+                      h={30}
+                      w={30}
+                    />
+                    <p className="text-gray-800 font-h-normal text-sm max-w-40 truncate">
+                      {account.company_name}
+                    </p>
+                    {currentUser?.type === 'seller' &&
+                      currentUser?.account?.id === account.id && (
+                        <IoIosCheckmarkCircleOutline className="text-green-400" />
+                      )}
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
+            {buyers && (
+              <div className="border-b">
+                <div className="py-1 px-5">
+                  <p className="text-black text-xs">Buyer Accounts</p>
+                </div>
+                {buyers?.map((account) => (
+                  <div
+                    key={account.id}
+                    className="flex items-center space-x-4 cursor-pointer hover:bg-gray-200 py-3 px-5"
+                    onClick={() => handleBuyerAccount(account)}
+                  >
+                    <Image
+                      src={account.avatar}
+                      width={30}
+                      height={30}
+                      alt="user"
+                      className="rounded-full"
+                    />
+                    <p className="text-gray-800 font-h-normal text-sm">
+                      {account.company_name}
+                    </p>
+                    {currentUser?.type === 'seller' &&
+                      currentUser?.account?.id === account.id && (
+                        <IoIosCheckmarkCircleOutline className="text-green-400" />
+                      )}
+                  </div>
+                ))}
+              </div>
+            )}
             <div
-              className="flex items-center space-x-4 text-red-600 hover:bg-gray-200 py-3 px-5"
+              className="flex items-center space-x-4 text-black hover:bg-gray-200 py-2 px-5 cursor-pointer"
+              onClick={() => {
+                dispatch(setOpenCreateAccountModal(true)),
+                  setProfileDropDown(false);
+              }}
+            >
+              <IoAddCircleOutline className="text-3xl" />
+              <p className="text-sm font-h-normal">Add account</p>
+            </div>
+            <div
+              className="flex items-center space-x-4 text-red-600 hover:bg-gray-200 py-2 px-5 cursor-pointer"
               onClick={handleLogout}
             >
               <AiOutlineLogout className="text-3xl" />

@@ -9,6 +9,7 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 import { useEffect } from 'react';
 import { setAccountProfile, logout } from '@/store/slices/authSlice';
 import { AppDispatch, RootState } from '@/store';
+import CreateAccount from './components/CreateAccount';
 
 function Layout({
   children,
@@ -36,6 +37,7 @@ function Layout({
     <PageWrapper route={pathname} sideItem={sideItem}>
       {children}
       <ToastContainer />
+      <CreateAccount />
     </PageWrapper>
   );
 }
