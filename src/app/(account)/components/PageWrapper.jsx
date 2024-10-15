@@ -1,7 +1,13 @@
 // In Production
 import React, { useEffect, useState } from 'react';
 import Notifications from './Notification';
-import { FaAngleDown, FaBars, FaRegBell, FaSearch, FaTimes } from 'react-icons/fa';
+import {
+  FaAngleDown,
+  FaBars,
+  FaRegBell,
+  FaSearch,
+  FaTimes,
+} from 'react-icons/fa';
 import { useGlobalContext } from '@/store/context';
 import AvatarWidget from '@/components/AvatarWidget';
 import ProfileDropdown from './ProfileDropDown';
@@ -89,32 +95,34 @@ const PageWrapper = ({ children, sideItem, route }) => {
             </div>
 
             <div className="flex gap-4 items-center">
-            <div
-                  className="hidden md:flex border border-gray-200 cursor-pointer relative bg-white p-1 rounded-lg justify-center"
-                  onClick={handleNotification}
-                >
-                  <FaRegBell className='text-xl text-gray-500' />
-                  <div className="absolute top-[-10px] right-[-10px] w-[24px]">
-                    <p className="bg-[#FF3F3F] p-1 text-white rounded-full text-xs font-bold flex justify-center">
-                      <span>{'4'}</span>
-                    </p>
-                  </div>
+              <div
+                className="hidden md:flex border border-gray-200 cursor-pointer relative bg-white p-1 rounded-lg justify-center"
+                onClick={handleNotification}
+              >
+                <FaRegBell className="text-xl text-gray-500" />
+                <div className="absolute top-[-10px] right-[-10px] w-[24px]">
+                  <p className="bg-[#FF3F3F] p-1 text-white rounded-full text-xs font-bold flex justify-center">
+                    <span>{'4'}</span>
+                  </p>
                 </div>
+              </div>
               <div
                 className="relative bg-transparent py-1 flex items-center justify-between space-x-8 px-2 cursor-pointer"
                 onClick={() => setProfileDropDown(!profileDropDown)}
               >
-               <div className="flex items-center space-x-2">
-               <AvatarWidget
-                  avatarUrl={avatarUrl}
-                  w={'26px'}
-                  h={'26px'}
-                  text={'10px'}
-                  owner={userProfile?.profile}
-                />
-                <p className='text-sm text-black font-h-normal'>{'PHCN ED'}</p>
-               </div>
-                <FaAngleDown className="w-[12px] text-2xl text-gray-500"/>
+                <div className="flex items-center space-x-2">
+                  <AvatarWidget
+                    avatarUrl={avatarUrl}
+                    w={'26px'}
+                    h={'26px'}
+                    text={'10px'}
+                    owner={userProfile?.profile}
+                  />
+                  <p className="text-sm text-black font-h-normal">
+                    {'PHCN ED'}
+                  </p>
+                </div>
+                <FaAngleDown className="w-[12px] text-2xl text-gray-500" />
               </div>
             </div>
           </nav>
@@ -128,7 +136,11 @@ const PageWrapper = ({ children, sideItem, route }) => {
         </div>
       </div>
       <Notifications notification={notification} />
-      <ProfileDropdown profileDropDown={profileDropDown} route={route} />
+      <ProfileDropdown
+        profileDropDown={profileDropDown}
+        route={route}
+        setProfileDropDown={setProfileDropDown}
+      />
     </>
   );
 };

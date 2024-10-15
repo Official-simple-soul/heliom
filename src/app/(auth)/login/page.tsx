@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import FormBuilder from '@/dynamics/FormBuilder';
 import { loginFormElements } from './data/loginForm';
 import { useRouter } from 'next/navigation';
-import { loginUser } from '@/store/slices/authSlice';
+import { loginUser, fetchAccountProfile } from '@/store/slices/authSlice';
+import { fetchSellers } from '@/store/slices/userSlice';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AppDispatch, RootState } from '@/store';
@@ -25,6 +26,9 @@ const Login: React.FC = () => {
     dispatch(setLoading(true));
     try {
       await dispatch(loginUser(formValues)).unwrap();
+
+      await dispatch(fetchAccountProfile()).unwrap();
+      await dispatch(fetchSellers()).unwrap();
 
       toast.success('Login successful!');
       navigate.replace('/dashboard');

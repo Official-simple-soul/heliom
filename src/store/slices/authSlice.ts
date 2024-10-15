@@ -4,6 +4,7 @@ import {
   getAccountProfile,
   updateAccountProfile,
 } from '@/services/account.service';
+import { getFromLocalStorage, saveToLocalStorage } from './helper';
 
 interface Credentials {
   email?: string;
@@ -18,18 +19,19 @@ interface AccountProfile {
   token: string;
 }
 
+interface CurrentUser {
+  type: string;
+}
+
 interface AuthState {
   accountProfile: AccountProfile | null;
   isAuthenticated: boolean;
   loading: boolean;
   error: string | null;
+  currentUser: CurrentUser | null;
 }
 
-const saveToLocalStorage = (key: string, value: unknown) => {
-  if (typeof window !== 'undefined') {
-    window.localStorage.setItem(key, JSON.stringify(value));
-  }
-};
+const currentUser = getFromLocalStorage('currentUser');
 
 const encodeFormData = (data: Credentials) => {
   return Object.keys(data)
@@ -100,7 +102,7 @@ export const signUpUser = createAsyncThunk(
 
 export const fetchAccountProfile = createAsyncThunk(
   'auth/fetchAccountProfile',
-  async (userId: string, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       return await getAccountProfile();
     } catch (error: unknown) {
@@ -131,6 +133,7 @@ const initialState: AuthState = {
   isAuthenticated: false,
   loading: false,
   error: null,
+  currentUser: currentUser,
 };
 
 const authSlice = createSlice({
@@ -140,6 +143,10 @@ const authSlice = createSlice({
     setAccountProfile: (state, action: PayloadAction<AccountProfile>) => {
       state.accountProfile = action.payload;
       state.isAuthenticated = true;
+    },
+    setCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+      saveToLocalStorage('currentUser', action.payload);
     },
     logout: (state) => {
       state.accountProfile = null;
@@ -223,5 +230,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { setAccountProfile, logout } = authSlice.actions;
+export const { setAccountProfile, setCurrentUser, logout } = authSlice.actions;
 export default authSlice.reducer;
