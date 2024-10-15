@@ -134,7 +134,7 @@ function DeviceDetails() {
             </div>
           </div>
           <div>
-            <GuagesDisplay />
+            <GuagesDisplay meterTopic={formData.meterTopic} />
           </div>
         </div>
       </div>
