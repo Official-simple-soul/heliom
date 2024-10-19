@@ -30,6 +30,7 @@ function DeviceDetails() {
     }));
 
     setMeterOptions(options);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataPipe['meterTopic']]);
 
   return (
