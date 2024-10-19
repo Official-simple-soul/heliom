@@ -1,5 +1,5 @@
 // TODO: This should be reworked
-const idCount = 10000;
+const idCount = 100;
 
 export async function generateStaticParams() {
   const ids = Array.from({ length: idCount }, (_, i) => ({

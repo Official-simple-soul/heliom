@@ -152,7 +152,7 @@ const authSlice = createSlice({
       state.accountProfile = null;
       state.isAuthenticated = false;
       if (typeof window !== 'undefined') {
-        window.localStorage.removeItem('accountProfile');
+        window.localStorage.clear();
       }
     },
   },
