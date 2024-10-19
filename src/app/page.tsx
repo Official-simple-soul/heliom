@@ -1,9 +1,10 @@
-import Link from "next/link";
-
+import Header from './landing/Header';
+import LandingPageIntro from './landing/LandingPageIntro';
 export default function Home() {
   return (
-    <div className="flex h-screen text-black w-full items-center justify-center">
-      <Link  className="border px-20 py-2 rounded hover:bg-pri hover:text-white" href={'/login'}>Login</Link>
+    <div className="flex flex-col min-h-screen w-full">
+      <Header />
+      <LandingPageIntro />
     </div>
   );
 }
