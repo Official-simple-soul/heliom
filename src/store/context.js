@@ -1,11 +1,11 @@
 // In Production
-'use client';
-import React, { useContext, useState } from 'react';
+"use client";
+import React, { useContext, useState } from "react";
 
 const RestContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
-  const [userProfile, setUserProfile] = useState({ user: 'buyer' });
+  const [userProfile, setUserProfile] = useState({ user: "seller" });
   const [formValues, setFormValues] = useState({});
 
   return (

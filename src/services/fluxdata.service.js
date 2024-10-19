@@ -1,4 +1,4 @@
-import { InfluxDB } from '@influxdata/influxdb-client';
+import { InfluxDB } from "@influxdata/influxdb-client";
 
 const token = process.env.NEXT_PUBLIC_INFLUX_DB_TOKEN;
 const org = process.env.NEXT_PUBLIC_INFLUX_DB_ORG;
@@ -26,18 +26,18 @@ export const fetchfluxDBData = async (query) => {
           });
         },
         error(error) {
-          console.error('Error querying InfluxDB:', error);
+          console.error("Error querying InfluxDB:", error);
           reject(error);
         },
         complete() {
-          console.log('Query complete');
+          console.log("Query complete", tempRows);
           resolve(tempRows);
         },
       });
     });
     return rows;
   } catch (error) {
-    console.error('Error fetching InfluxDB data:', error);
+    console.error("Error fetching InfluxDB data:", error);
     throw error;
   }
 };
