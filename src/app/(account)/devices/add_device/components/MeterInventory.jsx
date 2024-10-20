@@ -1,25 +1,20 @@
-import { useState } from "react";
-import FormBuilder from "@/dynamics/FormBuilder";
-import { MeterInventoryForm } from "../data/MeterInventory";
-import { useGlobalContext } from "@/store/context";
-import { toast } from "react-toastify";
-import { validation } from "@/utils/validation";
-import Link from "next/link";
+import { useState } from 'react';
+import FormBuilder from '@/dynamics/FormBuilder';
+import { MeterInventoryForm } from '../data/MeterInventory';
+import { toast } from 'react-toastify';
+import { validation } from '@/utils/validation';
+import Link from 'next/link';
 
-function MeterInventory({ setActiveTab, isLastStep }) {
+function MeterInventory({ setActiveTab, isLastStep, setFormValues }) {
   const [formData, setFormData] = useState();
-  const { setFormValues } = useGlobalContext();
-
-  const [loadingState, setLoadingState] = useState(false);
 
   const handleSubmit = () => {
     if (!validation(formData).status) {
-      toast.error("Complete all form fields");
+      toast.error('Complete all form fields');
       return;
     }
+
     setFormValues((prev) => ({ ...prev, ...formData }));
-    setLoadingState(false);
-    // Proceed to next tab
     setActiveTab();
   };
 
@@ -29,10 +24,9 @@ function MeterInventory({ setActiveTab, isLastStep }) {
         elements={MeterInventoryForm()}
         formData={formData}
         setFormData={setFormData}
-        loadingState={loadingState}
       />
       <div className="flex justify-center items-center gap-4">
-        <Link href={"/devices"}>
+        <Link href={'/devices'}>
           <button
             onClick={() => setActiveTab()}
             className="min-w-[188px] px-[16px] py-[8px] text-pri font-h-medium rounded-[8px] border border-pri"
@@ -44,7 +38,7 @@ function MeterInventory({ setActiveTab, isLastStep }) {
           onClick={handleSubmit}
           className="min-w-[188px] px-[16px] py-[8px] font-h-medium rounded-[8px] bg-pri text-[#FFFFFF]"
         >
-          {isLastStep ? "Submit" : "Next"}
+          {isLastStep ? 'Submit' : 'Next'}
         </button>
       </div>
     </div>

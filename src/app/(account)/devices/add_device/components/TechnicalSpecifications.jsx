@@ -1,24 +1,23 @@
-import { useState } from "react";
-import FormBuilder from "@/dynamics/FormBuilder";
-import { TechnicalSpecificationForm } from "../data/TechnicalSpecification";
-import { toast } from "react-toastify";
-import { validation } from "@/utils/validation";
-import { useGlobalContext } from "@/store/context";
+import { useState } from 'react';
+import FormBuilder from '@/dynamics/FormBuilder';
+import { TechnicalSpecificationForm } from '../data/TechnicalSpecification';
+import { toast } from 'react-toastify';
+import { validation } from '@/utils/validation';
 
-function TechnicalSpecifications({ setActiveTab, isLastStep, handleBack }) {
+function TechnicalSpecifications({
+  setActiveTab,
+  isLastStep,
+  handleBack,
+  setFormValues,
+}) {
   const [formData, setFormData] = useState();
-  const { setFormValues } = useGlobalContext();
-  const [loadingState, setLoadingState] = useState(false);
 
   const handleSubmit = () => {
     if (!validation(formData).status) {
-      toast.error("Complete all form fields");
+      toast.error('Complete all form fields');
       return;
     }
-    setLoadingState(true);
     setFormValues((prev) => ({ ...prev, ...formData }));
-    setLoadingState(false);
-    // submittion here
     setActiveTab();
   };
 
@@ -28,7 +27,6 @@ function TechnicalSpecifications({ setActiveTab, isLastStep, handleBack }) {
         elements={TechnicalSpecificationForm()}
         formData={formData}
         setFormData={setFormData}
-        loadingState={loadingState}
       />
       <div className="flex justify-center items-center gap-4">
         {!isLastStep && (
@@ -43,7 +41,7 @@ function TechnicalSpecifications({ setActiveTab, isLastStep, handleBack }) {
           onClick={handleSubmit}
           className="min-w-[188px] px-[16px] py-[8px] font-h-medium rounded-[8px] bg-pri text-[#FFFFFF]"
         >
-          {isLastStep ? "Submit" : "Next"}
+          {isLastStep ? 'Submit' : 'Next'}
         </button>
       </div>
     </div>
