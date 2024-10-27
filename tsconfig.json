@@ -33,7 +33,9 @@
     "src/app/(account)/devices/register_device/components/TechnicalSpecifications.jsx",
     "src/app/(auth)/signup/components/SignUp.jsx",
     "src/store/slices/meterSlice.js",
-    "src/store/slices/userSlice.js"
+    "src/store/slices/userSlice.js",
+    "src/app/(account)/devices/[id]/page.jsx",
+    "src/app/(account)/devices/[id]/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
