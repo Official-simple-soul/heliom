@@ -2,13 +2,13 @@ name: Playwright Tests
 
 on:
   pull_request:
-    branches: [main, dev]
+    branches: [ntn, ntn]
 
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    env: 
+    env:
       NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
       NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
       NEXT_PUBLIC_INFLUX_DB_URL: ${{ secrets.NEXT_PUBLIC_INFLUX_DB_URL }}
